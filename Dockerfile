@@ -1,4 +1,4 @@
-FROM alpine:latest as build
+FROM alpine:latest AS build
 
 RUN apk add --no-cache curl g++ gcc make tar
 
