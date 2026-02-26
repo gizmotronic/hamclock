@@ -1,0 +1,15 @@
+services:
+  homebridge:
+    image: gizmotronic/hamclock:4.0.22
+    restart: unless-stopped
+    ports:
+      - 0.0.0.0:8081:8081/tcp
+    volumes:
+      - data:/config
+    logging:
+      driver: json-file
+      options:
+        max-size: "10mb"
+        max-file: "2"
+volumes:
+  data:
