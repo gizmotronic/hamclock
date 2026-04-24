@@ -4,8 +4,7 @@ RUN apk add --no-cache curl g++ gcc make sed tar
 
 WORKDIR /build
 
-RUN curl -LsS https://www.clearskyinstitute.com/ham/HamClock/ESPHamClock.tgz | tar -xzpf - -C /build --strip-component 1
-RUN sed -i -e '/const char \*backend_host/s/"clearskyinstitute.com"/"hamclock.com"/' wifi.cpp
+RUN curl -LsS https://github.com/openhamclock/hamclock/archive/refs/tags/v4.23.0.tar.gz | tar -xzpf - -C /build --strip-component 1
 RUN make hamclock-web-1600x960
 RUN make install
 
